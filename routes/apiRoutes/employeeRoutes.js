@@ -18,6 +18,28 @@ router.get("/", (req, res) => {
   });
 });
 
+//Post new employee
+router.post("/", ({ body }, res) => {
+  const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)`;
+  const params = [
+    body.first_name,
+    body.last_name,
+    body.role_id,
+    body.manager_id,
+  ];
+
+  db.query(sql, params, (err, result) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: body,
+    });
+  });
+});
+
 // Get employees by manager
 router.get("/bymanager", (req, res) => {
   const sql = "";
