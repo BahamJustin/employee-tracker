@@ -1,28 +1,21 @@
 {
-  "name": "employee-tracker",
+  "name": "newsfeed-api",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BahamJustin/employee-tracker.git"
+    "test": "jest",
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/BahamJustin/employee-tracker/issues"
-  },
-  "homepage": "https://github.com/BahamJustin/employee-tracker#readme",
   "dependencies": {
-    "console.table": "^0.10.0",
-    "dotenv": "^10.0.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "inquirer": "^8.2.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.1.0"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
   }
 }
