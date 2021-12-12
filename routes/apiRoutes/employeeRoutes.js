@@ -40,6 +40,45 @@ router.post("/", ({ body }, res) => {
   });
 });
 
+//Get employee by id
+router.get("/:id", (req, res) => {
+  const sql = `SELECT * FROM employee WHERE id = ?`;
+  const params = [req.params.id];
+
+  db.query(sql, params, (err, row) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: row,
+    });
+  });
+});
+
+//Update employee role
+router.put("/:id", (req, res) => {
+  const sql = `UPDATE employee SET role_id = ? WHERE id = ?`;
+  const params = [req.body.role_id, req.params.id];
+
+  db.query(sql, params, (err, result) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+    } else if (!result.affectedRows) {
+      res.json({
+        message: "Employee not found",
+      });
+    } else {
+      res.json({
+        message: "success",
+        data: req.body,
+        changes: result.affectedRows,
+      });
+    }
+  });
+});
+
 // Get employees by manager
 router.get("/bymanager", (req, res) => {
   const sql = "";
