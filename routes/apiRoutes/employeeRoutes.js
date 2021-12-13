@@ -4,7 +4,11 @@ const db = require("../../db/connection");
 
 // Get all employees
 router.get("/", (req, res) => {
-  const sql = "SELECT * FROM employee;";
+  const sql = `SELECT employee.*, roles.title 
+  AS roles_title 
+  FROM roles 
+  LEFT JOIN employee 
+  ON employee.role_id = roles.id`;
 
   db.query(sql, (err, rows) => {
     if (err) {
@@ -42,7 +46,12 @@ router.post("/", ({ body }, res) => {
 
 //Get employee by id
 router.get("/:id", (req, res) => {
-  const sql = `SELECT * FROM employee WHERE id = ?`;
+  const sql = `SELECT employee.*, roles.title 
+  AS roles_title 
+  FROM roles 
+  LEFT JOIN employee 
+  ON employee.role_id = roles.id
+  WHERE employee.id = ?`;
   const params = [req.params.id];
 
   db.query(sql, params, (err, row) => {
