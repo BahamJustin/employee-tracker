@@ -39,7 +39,7 @@ router.post("/", ({ body }, res) => {
     }
     res.json({
       message: "success",
-      data: body,
+      data: result,
     });
   });
 });
