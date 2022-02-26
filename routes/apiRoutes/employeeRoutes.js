@@ -88,52 +88,52 @@ router.put("/:id", (req, res) => {
   });
 });
 
-// Get employees by manager
-router.get("/bymanager", (req, res) => {
-  const sql = "";
+// // Get employees by manager
+// router.get("/bymanager", (req, res) => {
+//   const sql = "";
 
-  db.query(sql, (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: rows,
-    });
-  });
-});
+//   db.query(sql, (err, rows) => {
+//     if (err) {
+//       res.status(500).json({ error: err.message });
+//       return;
+//     }
+//     res.json({
+//       message: "success",
+//       data: rows,
+//     });
+//   });
+// });
 
-//Get employees by department
-router.get("/bydepartment", (req, res) => {
-  const sql = "";
+// //Get employees by department
+// router.get("/bydepartment", (req, res) => {
+//   const sql = "";
 
-  db.query(sql, (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: rows,
-    });
-  });
-});
+//   db.query(sql, (err, rows) => {
+//     if (err) {
+//       res.status(500).json({ error: err.message });
+//       return;
+//     }
+//     res.json({
+//       message: "success",
+//       data: rows,
+//     });
+//   });
+// });
 
-//Get combined salaries of a department - total utilized budget
-router.get("/budget", (req, res) => {
-  const sql = "";
+// //Get combined salaries of a department - total utilized budget
+// router.get("/budget", (req, res) => {
+//   const sql = "";
 
-  db.query(sql, (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: rows,
-    });
-  });
-});
+//   db.query(sql, (err, rows) => {
+//     if (err) {
+//       res.status(500).json({ error: err.message });
+//       return;
+//     }
+//     res.json({
+//       message: "success",
+//       data: rows,
+//     });
+//   });
+// });
 
 module.exports = router;
